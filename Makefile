@@ -15,7 +15,7 @@ clean:
 	@if [ -a out.bin ]; then rm out.bin; fi
 
 docker-build:
-	@docker build -t github-actions/github-actions-test .
+	@docker build -t github-actions-test .
 
 docker-publish:
-	@docker push github-actions/github-actions-test
+	@docker push sekl/github-actions-test:github-actions-test

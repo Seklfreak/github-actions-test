@@ -17,7 +17,6 @@ action "Test" {
 
 action "Build" {
   needs = ["Lint", "Test"]
-  uses = "Seklfreak/github-actions/actions/go@master"
-  runs = "make"
-  args = "build"
+  uses = "actions/docker/cli@master"
+  args = ["build", "-t", "aws-example", "."]
 }

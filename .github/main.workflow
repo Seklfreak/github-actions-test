@@ -61,7 +61,7 @@ action "GitHub Action for Discord" {
   secrets = ["WEBHOOK_ID", "WEBHOOK_TOKEN"]
   env = {
     MESSAGE = "Deployment started…"
-    USERNAME = "github.com/Seklfreak/github-actions"
+    USERNAME = "github-actions-test"
   }
 }
 
@@ -70,7 +70,7 @@ action "GitHub Action for Discord-1" {
   needs = ["K8s Rollout"]
   secrets = ["WEBHOOK_TOKEN", "WEBHOOK_ID"]
   env = {
-    USERNAME = "github.com/Seklfreak/github-actions"
+    USERNAME = "github-actions-test"
     MESSAGE = "Deployment completed!"
   }
 }

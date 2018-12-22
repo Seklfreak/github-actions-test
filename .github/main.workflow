@@ -1,8 +1,8 @@
 workflow "Test, Build, and Rollout" {
   on = "push"
   resolves = [
-    "GitHub Action for Discord",
-    "GitHub Action for Discord-1",
+    "GitHub Action for Discord: Deploy finished",
+    "GitHub Action for Discord: Deploy started"
   ]
 }
 

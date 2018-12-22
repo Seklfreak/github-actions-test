@@ -25,14 +25,20 @@ action "Build" {
   args = "docker-build"
 }
 
+action "Publish Filter" {
+  needs = ["Build"]
+  uses = "actions/bin/filter@master"
+  args = "branch master"
+}
+
 action "Docker Tag" {
   uses = "actions/docker/tag@master"
-  needs = ["Build"]
+  needs = ["Publish Filter"]
   args = "sekl/github-actions-test sekl/github-actions-test"
 }
 
 action "Docker Login" {
-  needs = ["Build"]
+  needs = ["Publish Filter"]
   uses = "actions/docker/login@master"
   secrets = ["DOCKER_USERNAME", "DOCKER_PASSWORD"]
 }

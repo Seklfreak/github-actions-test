@@ -6,6 +6,6 @@ LABEL "com.github.actions.icon"="filter"
 LABEL "com.github.actions.color"="blue"
 
 RUN apt-get update -y && \
-    apt-get install -y curl
+    apt-get install -y make
 
-ENTRYPOINT ["/bin/make"]
+ENTRYPOINT ["/usr/bin/make"]

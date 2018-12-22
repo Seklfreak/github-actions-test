@@ -1,6 +1,10 @@
 workflow "Lint, Test, and Build" {
   on = "push"
-  resolves = ["Publish"]
+  resolves = [
+    "Publish",
+    "Docker Login",
+    "Docker Tag",
+  ]
 }
 
 action "Lint" {
@@ -22,8 +26,13 @@ action "Build" {
   args = "docker-build"
 }
 
-action "Docker Login" {
+action "Docker Tag" {
+  uses = "actions/docker/tag@76ff57a"
   needs = ["Build"]
+}
+
+action "Docker Login" {
+  needs = ["Docker Tag"]
   uses = "actions/docker/login@master"
   secrets = ["DOCKER_USERNAME", "DOCKER_PASSWORD"]
 }

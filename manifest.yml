@@ -13,7 +13,7 @@ spec:
         app: github-actions-test
     spec:
       containers:
-        - name: latest
+        - name: github-actions-test
           image: sekl/github-actions-test:latest
 ---
 apiVersion: v1

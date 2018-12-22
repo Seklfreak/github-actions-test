@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: github-actions-test-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: github-actions-test
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: latest
-          image: sekl/github-actions-test
+          image: sekl/github-actions-test:latest
 ---
 apiVersion: v1
 kind: Service

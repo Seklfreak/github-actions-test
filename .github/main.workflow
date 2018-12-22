@@ -29,7 +29,7 @@ action "Build" {
 action "Docker Tag" {
   uses = "actions/docker/tag@master"
   needs = ["Build"]
-  args = "github-actions-test sekl/github-actions-test"
+  args = "sekl/github-actions-test sekl/github-actions-test"
 }
 
 action "Docker Login" {

@@ -8,13 +8,13 @@ workflow "Lint, Test, and Build" {
 }
 
 action "Lint" {
-  uses = "Seklfreak/github-actions/actions/go@master"
+  uses = "./.github/actions/go"
   runs = "make"
   args = "lint"
 }
 
 action "Test" {
-  uses = "Seklfreak/github-actions/actions/go@master"
+  uses = "./.github/actions/go"
   runs = "make"
   args = "test"
 }

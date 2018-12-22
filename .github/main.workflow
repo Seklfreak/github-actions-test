@@ -48,4 +48,5 @@ action "Rollout" {
   uses = "./.github/actions/kubectl"
   runs = "make"
   args = "k8s-rollout"
+  secrets = ["DIGITALOCEAN_TOKEN", "KUBERNETES_CLUSTER"]
 }

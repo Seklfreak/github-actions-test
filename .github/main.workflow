@@ -1,6 +1,6 @@
 workflow "Lint, Test, and Build" {
   on = "push"
-  resolves = ["Build"]
+  resolves = ["Publish"]
 }
 
 action "Lint" {

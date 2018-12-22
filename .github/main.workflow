@@ -19,7 +19,7 @@ action "Build" {
   needs = ["Lint", "Test"]
   uses = "actions/action-builder/docker@master"
   runs = "make"
-  args = "build"
+  args = "docker-build"
 }
 
 action "Docker Login" {
@@ -32,5 +32,5 @@ action "Publish" {
   needs = ["Docker Login"]
   uses = "actions/action-builder/docker@master"
   runs = "make"
-  args = "publish"
+  args = "docker-publish"
 }

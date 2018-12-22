@@ -1,7 +1,8 @@
 workflow "Test, Build, and Rollout" {
   on = "push"
   resolves = [
-    "K8s Rollout",
+    "GitHub Action for Discord",
+    "GitHub Action for Discord-1",
   ]
 }
 
@@ -52,4 +53,24 @@ action "K8s Rollout" {
     "DIGITALOCEAN_TOKEN",
     "DIGITALOCEAN_K8S_CLUSTER_ID",
   ]
+}
+
+action "GitHub Action for Discord" {
+  uses = "./.github/actions/discord"
+  needs = ["Docker Publish"]
+  secrets = ["WEBHOOK_ID", "WEBHOOK_TOKEN"]
+  env = {
+    MESSAGE = "Deployment started…"
+    USERNAME = "github.com/Seklfreak/github-actions"
+  }
+}
+
+action "GitHub Action for Discord-1" {
+  uses = "./.github/actions/discord"
+  needs = ["K8s Rollout"]
+  secrets = ["WEBHOOK_TOKEN", "WEBHOOK_ID"]
+  env = {
+    USERNAME = "github.com/Seklfreak/github-actions"
+    MESSAGE = "Deployment completed!"
+  }
 }

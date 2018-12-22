@@ -45,7 +45,7 @@ action "Publish" {
 
 action "Rollout" {
   needs = ["Publish"]
-  uses = "./.github/actions/kubectl@master"
+  uses = "./.github/actions/kubectl"
   runs = "make"
   args = "k8s-rollout"
 }

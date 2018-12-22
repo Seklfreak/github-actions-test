@@ -21,4 +21,4 @@ docker-publish:
 	@docker push sekl/github-actions-test
 
 k8s-rollout:
-	@sh rollout.sh
+	@sh ./rollout.sh

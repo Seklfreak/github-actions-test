@@ -9,4 +9,4 @@ LABEL "com.github.actions.description"="Actions with kubectl"
 LABEL "com.github.actions.icon"="filter"
 LABEL "com.github.actions.color"="blue"
 
-ENTRYPOINT ["kubectl"]
+ENTRYPOINT ["/bin/make"]

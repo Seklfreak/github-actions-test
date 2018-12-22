@@ -4,13 +4,13 @@ workflow "Lint, Test, and Build" {
 }
 
 action "Lint" {
-  uses = "actions/action-builder/shell@master"
+  uses = "Seklfreak/github-actions/actions/go@master"
   runs = "make"
   args = "lint"
 }
 
 action "Test" {
-  uses = "actions/action-builder/shell@master"
+  uses = "Seklfreak/github-actions/actions/go@master"
   runs = "make"
   args = "test"
 }

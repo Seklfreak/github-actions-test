@@ -17,8 +17,9 @@ action "Test" {
 
 action "Build" {
   needs = ["Lint", "Test"]
-  uses = "actions/docker/cli@master"
-  args = ["build", "-t", "aws-example", "."]
+  uses = "actions/action-builder/docker@master"
+  runs = "make"
+  args = "build"
 }
 
 action "Docker Login" {

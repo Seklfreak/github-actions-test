@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-actions-test-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-actions-test
+  template:
+    metadata:
+      labels:
+        app: github-actions-test
+    spec:
+      containers:
+        - name: latest
+          image: sekl/github-actions-test
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: github-actions-test-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+      name: http
+  selector:
+    app: github-actions-test

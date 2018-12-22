@@ -27,8 +27,9 @@ action "Build" {
 }
 
 action "Docker Tag" {
-  uses = "actions/docker/tag@76ff57a"
+  uses = "actions/docker/tag@master"
   needs = ["Build"]
+  args = "github-actions-test sekl/github-actions-test"
 }
 
 action "Docker Login" {

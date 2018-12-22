@@ -16,7 +16,7 @@ curl -s -X GET -H "Content-Type: application/json" \
     -H "Authorization: Bearer $DIGITALOCEAN_TOKEN" \
     ${API_ENDPOINT_KUBECONFIG} > ${TMP_KUBECONFIG}
 
-kubectl --kubeconfig ${TMP_KUBECONFIG} patch deployment github-actions-test-deployment \
+kubectl --kubeconfig ${TMP_KUBECONFIG} patch deployment ${DEPLOYMENT_NAME} \
     -p"{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"$CONTAINER_NAME\",\"image\":\"$IMAGE_NAME:$SHA\"}]}}}}"
 
 # wait for rollout to finish

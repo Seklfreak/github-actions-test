@@ -52,7 +52,7 @@ action "Docker Publish" {
 
 action "K8s Rollout" {
   needs = ["Docker Publish"]
-  uses = "./.github/actions/kubectl"
+  uses = "Seklfreak/github-actions/kubectl@master"
   runs = "make"
   args = "k8s-rollout"
   secrets = [

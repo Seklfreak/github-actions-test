@@ -2,7 +2,7 @@ workflow "Test, Build, and Rollout" {
   on = "push"
   resolves = [
     "GitHub Action for Discord: Deploy finished",
-    "GitHub Action for Discord: Deploy started"
+    "GitHub Action for Discord: Deploy started",
   ]
 }
 
@@ -53,12 +53,12 @@ action "Docker Publish" {
 action "K8s Rollout" {
   needs = ["Docker Publish"]
   uses = "Seklfreak/github-actions/kubectl@master"
-  runs = "make"
   args = "k8s-rollout"
   secrets = [
     "DIGITALOCEAN_TOKEN",
     "DIGITALOCEAN_K8S_CLUSTER_ID",
   ]
+  runs = "make"
 }
 
 action "GitHub Action for Discord: Deploy started" {

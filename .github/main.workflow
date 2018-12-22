@@ -1,9 +1,7 @@
 workflow "Lint, Test, and Build" {
   on = "push"
   resolves = [
-    "Publish",
-    "Docker Login",
-    "Docker Tag",
+    "Rollout",
   ]
 }
 
@@ -43,4 +41,11 @@ action "Publish" {
   uses = "actions/action-builder/docker@master"
   runs = "make"
   args = "docker-publish"
+}
+
+action "Rollout" {
+  needs = ["Publish"]
+  uses = "./.github/actions/kubectl@master"
+  runs = "make"
+  args = "k8s-rollout"
 }

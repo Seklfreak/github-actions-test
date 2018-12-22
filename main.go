@@ -13,7 +13,7 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-// Message returns Hello World
+// Message returns Hello World!
 func Message() string {
 	return "Hello World!"
 }

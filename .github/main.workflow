@@ -61,7 +61,7 @@ action "K8s Rollout" {
   ]
 }
 
-action "GitHub Action for Discord" {
+action "GitHub Action for Discord: Deploy started" {
   uses = "Seklfreak/github-actions/discord@master"
   needs = ["Docker Publish"]
   secrets = ["WEBHOOK_ID", "WEBHOOK_TOKEN"]
@@ -71,7 +71,7 @@ action "GitHub Action for Discord" {
   }
 }
 
-action "GitHub Action for Discord-1" {
+action "GitHub Action for Discord: Deploy finished" {
   uses = "Seklfreak/github-actions/discord@master"
   needs = ["K8s Rollout"]
   secrets = ["WEBHOOK_TOKEN", "WEBHOOK_ID"]

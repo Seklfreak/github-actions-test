@@ -7,13 +7,13 @@ workflow "Test, Build, and Rollout" {
 }
 
 action "Lint" {
-  uses = "./.github/actions/go"
+  uses = "Seklfreak/github-actions/go-shell@master"
   runs = "make"
   args = "lint"
 }
 
 action "Test" {
-  uses = "./.github/actions/go"
+  uses = "Seklfreak/github-actions/go-shell@master"
   runs = "make"
   args = "test"
 }
@@ -62,7 +62,7 @@ action "K8s Rollout" {
 }
 
 action "GitHub Action for Discord" {
-  uses = "./.github/actions/discord"
+  uses = "Seklfreak/github-actions/discord@master"
   needs = ["Docker Publish"]
   secrets = ["WEBHOOK_ID", "WEBHOOK_TOKEN"]
   env = {
@@ -72,7 +72,7 @@ action "GitHub Action for Discord" {
 }
 
 action "GitHub Action for Discord-1" {
-  uses = "./.github/actions/discord"
+  uses = "Seklfreak/github-actions/discord@master"
   needs = ["K8s Rollout"]
   secrets = ["WEBHOOK_TOKEN", "WEBHOOK_ID"]
   env = {
